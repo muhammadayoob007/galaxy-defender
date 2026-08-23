@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #050510;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    border: 2px solid #222;
+    border-radius: 8px;
+    background: radial-gradient(circle at bottom, #1a1a3a, #050510);
+    overflow: hidden;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; /* Lets clicks pass through to the canvas */
+    padding: 15px;
+    z-index: 10;
+}
+
+#score-display {
+    color: #00ffff;
+    font-size: 20px;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: auto; /* Re-enable clicks for the button */
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ff4444;
+    width: 80%;
+}
+
+#game-over h1 {
+    color: #ff4444;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ff4444;
+}
+
+#game-over p {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#restart-btn {
+    padding: 12px 24px;
+    background: #00ffff;
+    color: #000;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+#restart-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+canvas {
+    display: block;
+}
+
+/* Mobile Controls Styling */
+#mobile-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 20;
+    pointer-events: auto; 
+}
+
+#mobile-controls button {
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid #00ffff;
+    color: #fff;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    /* Prevents the screen from zooming when tapping fast on mobile */
+    touch-action: manipulation; 
+    user-select: none;
+}
+
+#mobile-controls button:active {
+    background: rgba(0, 255, 255, 0.6);
+}
